@@ -1,27 +1,61 @@
+/* Import your local fonts using relative paths */
+@font-face {
+    font-family: 'Magelo Bold';
+    src: url('/Magelo/Magelo Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Magelo Extra Light';
+    src: url('/Magelo/Magelo Extra Light.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Magelo Light';
+    src: url('/Magelo/Magelo Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Magelo Medium';
+    src: url('/Magelo/Magelo Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Magelo Regular';
+    src: url('/Magelo/Magelo Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Magelo Semi Bold';
+    src: url('/Magelo/Magelo Semi Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Magelo Light;
+    letter-spacing: 2px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body{
+  background-color: theme(colors.dark2);
+  position: relative;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+

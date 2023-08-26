@@ -1,0 +1,1 @@
+export const receiver = 'fares.hassen512@gmail.com';
