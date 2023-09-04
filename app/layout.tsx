@@ -7,8 +7,31 @@ import {ScrollUp} from '@components'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Goho',
+  metadataBase: new URL('https://goho.club'),
+  title: 'Goho Presale',
   description: 'Next Generation Membership App.',
+  alternates:{
+    canonical:'/',
+  },
+  authors:[{name:'iSy',url:'https://github.com/iSyqozz/'}],
+  applicationName:'Goho',
+  generator:'Next.js',
+  keywords:['Goho','Presale','Club', 'solana'],
+  viewport:{ width: "device-width", initialScale: 1 },
+  openGraph:{
+    type:'website',
+    title:'Goho Presale',
+    description:'Goho Private Presale',
+    siteName:'Goho Presale',
+    images:[
+      {
+        url:'public/logo-goho.png'
+      }
+    ]
+  },
+  twitter:{
+
+  }
 }
 
 export default function RootLayout({
@@ -17,9 +40,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html className=' scroll-smooth'  lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
       </head>
       <body className={inter.className}>
         <NavBar></NavBar>

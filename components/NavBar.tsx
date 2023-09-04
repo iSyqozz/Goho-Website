@@ -11,10 +11,11 @@ const NavBar = () => {
   const [option2, setOption2] = useState(false)
   const [option3, setOption3] = useState(false)
   const [option4, setOption4] = useState(false)
+  const [option5, setOption5] = useState(false)
   const [scrolling, setScrolling] = useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY > 60) {
+    if (window.scrollY > 50) {
       setScrolling(true);
     } else {
       setScrolling(false);
@@ -57,6 +58,12 @@ const NavBar = () => {
       })
     }, 300);
 
+    setTimeout(() => {
+      setOption5((prev) => {
+        return !prev
+      })
+    }, 375);
+
   }, [])
 
   return (
@@ -73,7 +80,7 @@ const NavBar = () => {
           </Link>
           {
             !sideMenuActive &&
-            <div className='max-sm:hidden text-[18px] flex gap-4 items-center justify-center'>
+            <div className='max-sm:hidden text-[18px] flex gap-2 items-center justify-center'>
               <Link href={'/'}>
                 <div className=' transition-all rounded-md px-2 py-1 hover:bg-primary hover:text-darkest  cursor-pointer text-primary'>Home</div>
               </Link>
@@ -86,8 +93,8 @@ const NavBar = () => {
               <Link href={'/contact'}>
                 <div className=' transition-all rounded-md px-2 py-1  hover:bg-primary hover:text-darkest cursor-pointer text-primary'>Contact us</div>
               </Link>
-              <Link href={'/products'}>
-                <div className=' transition-all rounded-md px-2 py-1 hover:bg-primary hover:text-darkest  cursor-pointer text-primary'>Products</div>
+              <Link href={'/#roadmap'}>
+                <div className=' transition-all rounded-md px-2 py-1 hover:bg-primary hover:text-darkest  cursor-pointer text-primary'>Roadmap</div>
               </Link>
             </div>}
 
@@ -109,8 +116,8 @@ const NavBar = () => {
         </div>
       </div>
 
-      {false &&
-        <div className=' opac  bg-darkest bg-opacity-50 fixed z-10 top-0 w-full h-[60px] flex items-center justify-center'>
+      {
+        <div className={(scrolling?('-translate-y-2'):('-translate-y-40')) + ' shadow-lg flex transition-all hover:opacity-100 hover:translate-y-0  opacity-60 -translate-y-2 bg-darkest bg-opacity-50 fixed z-10 top-0 w-full h-[60px] items-center justify-center'}>
           <div className='flex items-center justify-between w-[90%] h-full max-w-[1440px]'>
             <Link href={'/'}>
               <Image
@@ -122,7 +129,7 @@ const NavBar = () => {
             </Link>
             {
               !sideMenuActive &&
-              <div className='max-sm:hidden text-[18px] flex gap-4 items-center justify-center'>
+              <div className='max-sm:hidden text-[18px] flex gap-2 items-center justify-center'>
                 <Link href={'/'}>
                   <div className=' transition-all rounded-md px-2 py-1 hover:bg-primary hover:text-darkest  cursor-pointer text-primary'>Home</div>
                 </Link>
@@ -135,8 +142,8 @@ const NavBar = () => {
                 <Link href={'/contact'}>
                   <div className=' transition-all rounded-md px-2 py-1  hover:bg-primary hover:text-darkest cursor-pointer text-primary'>Contact us</div>
                 </Link>
-                <Link href={'/products'}>
-                  <div className=' transition-all rounded-md px-2 py-1 hover:bg-primary hover:text-darkest  cursor-pointer text-primary'>Products</div>
+                <Link href={'/#roadmap'}>
+                  <div className=' transition-all rounded-md px-2 py-1 hover:bg-primary hover:text-darkest  cursor-pointer text-primary'>Roadmap</div>
                 </Link>
               </div>}
 
@@ -165,7 +172,7 @@ const NavBar = () => {
             <Image
               width={50}
               height={50}
-              src={'/exit.png'}
+              src={'/icons/exit.png'}
               alt='exit'
               className=' transition-all absolute top-[10px] right-[20px] bg-transparent w-[50px] h-[50px] cursor-pointer hover:scale-105'
               onClick={() => {
@@ -174,20 +181,20 @@ const NavBar = () => {
               }}
             />
 
-            <Link href={'/'} onClick={() => { setSideMenuActive(false) }}>
+            <Link href={'/'} onClick={() => { setSideMenuActive(false), displaySideOptions() }}>
               <div className={(option1 ? 'opacity-100 -translate-y-4 ' : 'opacity-0 ') + 'transition-all translate-y-0  hover:scale-110 cursor-pointer text-primary'}>Home</div>
             </Link>
-            <Link href={'/about'} onClick={() => { setSideMenuActive(false) }}>
+            <Link href={'/about'} onClick={() => { setSideMenuActive(false), displaySideOptions() }}>
               <div className={(option2 ? 'opacity-100 -translate-y-4 ' : 'opacity-0 ') + 'transition-all translate-y-0  hover:scale-110 cursor-pointer text-primary'}>About</div>
             </Link>
-            <Link href={'/faq'} onClick={() => { setSideMenuActive(false) }}>
-              <div className={(option2 ? 'opacity-100 -translate-y-4 ' : 'opacity-0 ') + 'transition-all translate-y-0  hover:scale-110 cursor-pointer text-primary'}>FAQ</div>
+            <Link href={'/faq'} onClick={() => { setSideMenuActive(false), displaySideOptions() }}>
+              <div className={(option3 ? 'opacity-100 -translate-y-4 ' : 'opacity-0 ') + 'transition-all translate-y-0  hover:scale-110 cursor-pointer text-primary'}>FAQ</div>
             </Link>
-            <Link href={'/contact'} onClick={() => { setSideMenuActive(false) }}>
-              <div className={(option3 ? 'opacity-100 -translate-y-4 ' : 'opacity-0 ') + 'transition-all translate-y-0  hover:scale-110 cursor-pointer text-primary'}>Contact us</div>
+            <Link href={'/contact'} onClick={() => { setSideMenuActive(false), displaySideOptions() }}>
+              <div className={(option4 ? 'opacity-100 -translate-y-4 ' : 'opacity-0 ') + 'transition-all translate-y-0  hover:scale-110 cursor-pointer text-primary'}>Contact us</div>
             </Link>
-            <Link href={'/products'} onClick={() => { setSideMenuActive(false) }}>
-              <div className={(option4 ? 'opacity-100 -translate-y-4 ' : 'opacity-0 ') + 'transition-all translate-y-0  hover:scale-110 cursor-pointer text-primary'}>Products</div>
+            <Link href={'/#roadmap'} onClick={() => { setSideMenuActive(false) , displaySideOptions() }}>
+              <div className={(option5 ? 'opacity-100 -translate-y-4 ' : 'opacity-0 ') + 'transition-all translate-y-0  hover:scale-110 cursor-pointer text-primary'}>Roadmap</div>
             </Link>
           </div>
         )
