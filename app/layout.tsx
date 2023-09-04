@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://goho.club'),
-  title: 'Goho Presale',
+  title: 'Goho',
   description: 'Next Generation Membership App.',
   alternates:{
     canonical:'/',
